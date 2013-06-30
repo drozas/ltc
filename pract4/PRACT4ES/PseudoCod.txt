@@ -1,0 +1,114 @@
+/* PSEUDOCODIGO DEL PROGRAMA DE PRUEBA: PRACT4*/
+/*******************************************************************************/
+/*Convenio de registros*/
+R15: address (primer parámetro de los procedimientos de escritura y lectura),
+R14: data (segundo parámetro de los procedimientos de escritura y lectura),
+R11: constante 254 (dirección del puerto A),
+R10: constante 255 (dirección del puerto B),
+R9: de uso libre dentro de los procedimientos de escritura y lectura.
+R8: constante 0,
+R0 a R7: de uso general.
+/*agregados...*/
+R0: 254 ~ -2, para los saltos de los bucles
+R1: cte 0, entre otras para condicion de tipo 1 de bucle
+R2: cte 255, para tipo 2 de bucle
+R3: 253, para tipo 3 de bucle
+/*****************************************************************************/
+
+/* Inicialización de registros*/
+Inmediato R10,255;
+Inmediato R11,254;
+Inmediato R0,254;
+Inmediato R2,255;
+Inmediato R1,0;
+Inmediato R3,253;
+
+Almacenar M(R10),R1; /*sal_b:=000000000*/
+Inmediato R15,47; /*adress:= 47*/
+
+/*PROCEDURE LEER(ADRESS,DATA)*/
+/*****************************/
+Almacenar M(R11),R15; /*sal_a:=adress*/
+Inmediato R6,10; /*aux:=10*/
+Almacenar M(R10),R6; /*sal_b:=10(aux)*/
+
+/*Bucle de tipo 1*/
+Cargar R12, M(R10); 
+Restar R12, R1, R12;
+SaltarSiC R0;
+/*Fin Bucle*/
+
+Almacenar M(R10),R1; /*sal_b:=0000000*/
+
+/*Bucle de tipo 2*/
+Cargar R12, M(R10);
+Sumar R12, R2, R12;
+SaltarSiC R0;
+/*Fin bucle*/
+
+/*Bucle tipo 1*/
+Cargar R12, M(R10);
+Restar R12, R1, R12;
+SaltarSiC R0;
+/*Fin bucle*/
+
+Cargar R14,M(R11);/*data:=ent_a*/
+Inmediato R9,4;/*aux:=4*/
+Almacenar M(R10),R9;/*sal_b:=aux(4)*/
+
+/*Bucle de tipo 3*/
+Cargar R12, M(R10);
+Sumar R12, R3, R12;
+SaltarSiC R0;
+/*Fin bucle*/
+
+Almacenar M(R10),R1;/* sal_b:=000000000*/
+
+/* FIN PROCEDURE LEER(ADRESS,DATA)*/
+/***********************************/
+
+Inmediato R15,48; /*adress:=48*/
+
+/PROCEDURE ESCRIBIR(ADRESS,DATA)*/
+/*******************************/
+Almacenar M(R11),R15;/*sal_a:=adress*/
+Inmediato R4,9;/*aux:=9*/
+Almacenar M(R10),R4;/*sal_b:=9(aux)*/
+
+/*Bucle tipo 1*/
+Cargar R12, M(R10);
+Restar R12, R1, R12;
+SaltarSiC R0;
+/*Fin bucle*/
+
+Almacenar M(R10),R1;/*sal_b:=00000000*/
+
+/*Bucle tipo2*/
+Cargar R12, M(R10);
+Sumar R12, R2, R12;
+SaltarSiC R0;
+/*Fin bucle*/
+
+/*Bucle tipo1*/
+Cargar R12, M(R10);
+Restar R12, R1, R12;
+SaltarSiC R0;
+/*Fin bucle tipo1*/
+
+Almacenar M(R11),R14;/*sal_a:=data*/
+Inmediato R5,12;/*aux:=12*/
+Almacenar M(R10),R5;/*sal_A:=12(aux)*/
+
+/*Bucle tipo3*/
+Cargar R12, M(R10);
+Sumar R12, R3, R12;
+SaltarSiC R0;
+/*Fin bucle*/
+
+Almacenar M(R10),R1;/*sal_b:=000000000*/
+
+/*FIN PROCEDURE ESCRIBIR(ADRESS,DATA)*/
+/*************************************/
+
+Almacenar M(R10),R1;/*sal_b:=000000000*/
+Nop;

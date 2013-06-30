@@ -1,0 +1,64 @@
+vbvhdl4ive -d TEST_MCD TEST -i -dbg
+VeriBest VHDL Simulator Version 15.00.00.25.
+Starting Simulation ... Tue Mar 23 10:15:51 2004
+
+License error: Error reading license file
+Cannot find license file
+ The license files (or server network addresses) attempted are 
+ listed below.  Use LM_LICENSE_FILE to use a different license file,
+ or contact your software provider for a license file.
+Feature:       VBVHDL_CHIP_NT
+Filename:      C:\flexlm\license.dat
+License path:  C:\flexlm\license.dat
+FLEXlm error:  -1,359.  System Error: 2 "No such file or directory"
+For further information, refer to the FLEXlm End User Manual,
+available at "www.globetrotter.com".
+License file is C:\flexlm\license.dat
+Feature is VBVHDL_CHIP_NT.
+
+-----------------------------------------------------------
+No license was found.
+The simulator will run in reduced capacity mode.
+
+If you would like a license for full capacity operation,
+please contact us at sales@veribest.com
+or in the USA call us at 1-888 482-3322.
+
+http://www.veribest.com/vhdl.html
+-----------------------------------------------------------
+NOTE: Number of component (cell) instances in the design: 3
+
+Assertion [WARNING] in :TEST_MCD(TEST):CIRCUITO_TEST@CIRCUIT_MCD(CIRCUIT):RUTA_DATOS@DATA_PATH_MCD(RTL):_P at time 0 ns, cycle 0:
+    There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+Assertion [WARNING] in :TEST_MCD(TEST):CIRCUITO_TEST@CIRCUIT_MCD(CIRCUIT):RUTA_DATOS@DATA_PATH_MCD(RTL):_P at time 0 ns, cycle 0:
+    There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+Assertion [WARNING] in :TEST_MCD(TEST):CIRCUITO_TEST@CIRCUIT_MCD(CIRCUIT):RUTA_DATOS@DATA_PATH_MCD(RTL):_P at time 0 ns, cycle 0:
+    There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+Assertion [WARNING] in :TEST_MCD(TEST):CIRCUITO_TEST@CIRCUIT_MCD(CIRCUIT):RUTA_DATOS@DATA_PATH_MCD(RTL):_P at time 0 ns, cycle 0:
+    CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+Assertion [WARNING] in :TEST_MCD(TEST):CIRCUITO_TEST@CIRCUIT_MCD(CIRCUIT):RUTA_DATOS@DATA_PATH_MCD(RTL):_P at time 0 ns, cycle 0:
+    There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+Assertion [WARNING] in :TEST_MCD(TEST):CIRCUITO_TEST@CIRCUIT_MCD(CIRCUIT):RUTA_DATOS@DATA_PATH_MCD(RTL):_P at time 0 ns, cycle 0:
+    There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+
+Checkpointing at simulation time 0 ns.
+Checkpoint completed.
+Ready to simulate ... Tue Mar 23 10:15:53 2004
+
+-- Message Summary:
+Total: 0 error(s), 0 warning(s), 0 note(s)
+
+run 1500 ns
+
+Run for 1500 ns.
+Assertion [WARNING] in :TEST_MCD(TEST):CIRCUITO_TEST@CIRCUIT_MCD(CIRCUIT):RUTA_DATOS@DATA_PATH_MCD(RTL):_P at time 0 ns, cycle 1:
+    There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+Assertion [WARNING] in :TEST_MCD(TEST):CIRCUITO_TEST@CIRCUIT_MCD(CIRCUIT):RUTA_DATOS@DATA_PATH_MCD(RTL):_P at time 0 ns, cycle 1:
+    CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+Assertion [WARNING] in :TEST_MCD(TEST):CIRCUITO_TEST@CIRCUIT_MCD(CIRCUIT):RUTA_DATOS@DATA_PATH_MCD(RTL):_P at time 0 ns, cycle 1:
+    There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+Assertion [WARNING] in :TEST_MCD(TEST):CIRCUITO_TEST@CIRCUIT_MCD(CIRCUIT):RUTA_DATOS@DATA_PATH_MCD(RTL):_P at time 0 ns, cycle 1:
+    There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+quit
+Cleaning up simulation environment ... Tue Mar 23 10:21:27 2004
+

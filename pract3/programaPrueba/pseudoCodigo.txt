@@ -1,0 +1,46 @@
+***********Pseudocódigo del programa de prueba de la pract3*********
+
+/* ASIGNACION DE REGISTROS*/
+Inmediato R15, 254;/*Para la direccion del puerto A*/
+Inmediato R14, 253;/*Para la condicion del primer bucle 253~ -3*/
+Inmediato R13, 251;/*Para la condicion del segundo bucle 251~ -5*/
+Inmediato R12, 252;/*Para la condicion del tercer bucle 252~ -4*/
+Inmediato R11, 1;/*Cte 1*/
+
+/*Inicializacion de variables*/
+Inmediato R10, 19; /*R10 indice j; j:=19*/
+Inmediato R9, 1; /*R9 indice i; i:=1*/
+
+/***************************************************************/
+/*aqui salta bucle 1*/
+Almacenar M(R9), R9; /*guardamos el valor i, en posicion de mem i*/
+Sumar R9, R9, R11; /*i:=i+1*/
+Restar R10, R10, R11;/*j:=j-1*/
+SaltarSiC R14;/*salto a ini_bucle1 si j<0*/
+
+
+Inmediato R10, 19;/*j:=19*/
+Inmediato R9, 1;/*i:=1*/
+Inmediato R8, 21;/*ahora copiaremos 20 mas adelante->k*/
+
+/*aqui salta bucle2*/
+Cargar R0, M(R9); /*R0:=i*/
+Almacenar M(R8), R0; /*copiamos el valor de i (R0 aux) en la posicion de mem 
+			(NO SE PUEDE PASAR DE UNA POS DE MEM A OTRA DIRECTAMENTE!!!*/
+Sumar R9, R9, R11; /*i:=i+1*/
+Sumar R8, R8, R11; /*k:=k+1*/
+Restar R10, R10, R11; /*j:=j-1*/
+SaltarSiC R13;/*Salto a ini_bucle2 si j<0*/
+/***************************************************************/
+
+/*Salida por A de los datos de mem de 21 a 40 */
+
+/*Aqui salta bucle 3*/
+Inmediato R10, 19; /*j:=19*/
+Inmediato R8, 21; /*K:=21*/
+Cargar R0, M(R8); /*aux:=m(k)*/
+Almacenar M(R15), R0; /*sal_A:=aux*/
+Sumar R8, R8, R11; /*k:=k+1*/
+Restar R10, R10, R11; /*j:=j-1*/
+SaltarSiC R12; /*salto a ini_bucle3 si j<0*/
+Nop;

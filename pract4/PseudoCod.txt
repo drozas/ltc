@@ -1,0 +1,245 @@
+/* PSEUDOCODIGO DEL PROGRAMA FINAL: PRACT4*/
+/*******************************************************************************/
+/*Convenio de registros*/
+R15: address (primer parámetro de los procedimientos de escritura y lectura),
+R14: data (segundo parámetro de los procedimientos de escritura y lectura),
+R11: constante 254 (dirección del puerto A),
+R10: constante 255 (dirección del puerto B),
+R9: de uso libre dentro de los procedimientos de escritura y lectura.
+R8: constante 0,
+R0 a R7: de uso general.
+/*agregados...*/
+R0: 254 ~ -2, para los saltos de los bucles
+R1: cte 0, entre otras para condicion de tipo 1 de bucle
+R2: cte 255, para tipo 2 de bucle
+R3: 253, para tipo 3 de bucle
+/*******************************************************************************/
+
+
+
+/*Inicializacion de registros*/
+Inmediato R10,255;
+Inmediato R11,254;
+Inmediato R0,254;
+Inmediato R2,255;
+Inmediato R1,0;
+Inmediato R3,253;
+
+
+Almacenar M(R10),R1;/*sal_b:=0*/
+Inmediato R15,47;/*adress:=47*/
+
+/*LECTURA(ADRESS=47,VAR DATA)*/
+Almacenar M(R11),R15;
+Inmediato R6,10;
+Almacenar M(R10),R6;
+Cargar R12, M(R10);
+Restar R12, R1, R12;
+SaltarSiC R0;
+Almacenar M(R10),R1;
+Cargar R12, M(R10);
+Sumar R12, R2, R12;
+SaltarSiC R0;
+Cargar R12, M(R10);
+Restar R12, R1, R12;
+SaltarSiC R0;
+Cargar R14,M(R11);
+Inmediato R9,4;
+Almacenar M(R10),R9;
+Cargar R12, M(R10);
+Sumar R12, R3, R12;
+SaltarSiC R0;
+Almacenar M(R10),R1;
+/*FIN LECTURA*/
+
+Inmediato R15,2; /*adress:=2*/
+
+/*ESCRITURA(ADRESS=2, VAR DATA*/
+Almacenar M(R11),R15;
+Inmediato R4,9;
+Almacenar M(R10),R4;
+Cargar R12, M(R10);
+Restar R12, R1, R12;
+SaltarSiC R0;
+Almacenar M(R10),R1;
+Cargar R12, M(R10);
+Sumar R12, R2, R12;
+SaltarSiC R0;
+Cargar R12, M(R10);
+Restar R12, R1, R12;
+SaltarSiC R0;
+Almacenar M(R11),R14;
+Inmediato R5,12;
+Almacenar M(R10),R5;
+Cargar R12, M(R10);
+Sumar R12, R3, R12;
+SaltarSiC R0;
+Almacenar M(R10),R1;
+/*FIN ESCRITURA**/
+
+Inmediato R15,48; /*adress:=48*/
+
+/*ESCRITURA(ADRESS=48, VAR DATA)*/
+Almacenar M(R11),R15;
+Inmediato R6,10;
+Almacenar M(R10),R6;
+Cargar R12, M(R10);
+Restar R12, R1, R12;
+SaltarSiC R0;
+Almacenar M(R10),R1;
+Cargar R12, M(R10);
+Sumar R12, R2, R12;
+SaltarSiC R0;
+Cargar R12, M(R10);
+Restar R12, R1, R12;
+SaltarSiC R0;
+Cargar R14,M(R11);
+Inmediato R9,4;
+Almacenar M(R10),R9;
+Cargar R12, M(R10);
+Sumar R12, R3, R12;
+SaltarSiC R0;
+Almacenar M(R10),R1;
+/*FIN ESCRITURA*/
+
+Inmediato R15,3; /* adress:=3*/
+
+/*ESCRITURA(ADRESS=3, VAR DATA)*/
+Almacenar M(R11),R15;
+Inmediato R4,9;
+Almacenar M(R10),R4;
+Cargar R12, M(R10);
+Restar R12, R1, R12;
+SaltarSiC R0;
+Almacenar M(R10),R1;
+Cargar R12, M(R10);
+Sumar R12, R2, R12;
+SaltarSiC R0;
+Cargar R12, M(R10);
+Restar R12, R1, R12;
+SaltarSiC R0;
+Almacenar M(R11),R14;
+Inmediato R5,12;
+Almacenar M(R10),R5;
+Cargar R12, M(R10);
+Sumar R12, R3, R12;
+SaltarSiC R0;
+Almacenar M(R10),R1;
+/*FIN ESCRITURA*/
+
+Inmediato R15,1; /*adress:=1*/
+
+/*ESCRITURA(ADRESS=1,VAR DATA)
+Almacenar M(R11),R15;
+Inmediato R4,9;
+Almacenar M(R10),R4;
+Cargar R12, M(R10);
+Restar R12, R1, R12;
+SaltarSiC R0;
+Almacenar M(R10),R1;
+Cargar R12, M(R10);
+Sumar R12, R2, R12;
+SaltarSiC R0;
+Cargar R12, M(R10);
+Restar R12, R1, R12;
+SaltarSiC R0;
+Almacenar M(R11),R14;
+Inmediato R5,12;
+Almacenar M(R10),R5;
+Cargar R12, M(R10);
+Sumar R12, R3, R12;
+SaltarSiC R0;
+Almacenar M(R10),R1;
+/*FIN ESCRITURA*/
+
+
+
+/*A RELLENAR CON CUIDAO...*/
+/*R4=AUX EN ESTE TROZO*/
+/*R5=SALTO TOCHO = ??? DEL BUCLE, EN ESTE TROZO*/
+Inmediato R5,234; /*Tenemos que saltar 22~234*/
+
+/*A SALTAR AQUI!!!*/
+
+/*LECTURA(VAR ADRESS, VAR DATA)*/
+Almacenar M(R11),R15;
+Inmediato R6,10;
+Almacenar M(R10),R6;
+Cargar R12, M(R10);
+Restar R12, R1, R12;
+SaltarSiC R0;
+Almacenar M(R10),R1;
+Cargar R12, M(R10);
+Sumar R12, R2, R12;
+SaltarSiC R0;
+Cargar R12, M(R10);
+Restar R12, R1, R12;
+SaltarSiC R0;
+Cargar R14,M(R11);
+Inmediato R9,4;
+Almacenar M(R10),R9;
+Cargar R12, M(R10);
+Sumar R12, R3, R12;
+SaltarSiC R0;
+Almacenar M(R10),R1;
+/*FIN LECTURA*/
+
+Sumar R4,R14,R1; /*AUX:=DATA, sumamos en R4=aux el contenido de R14=data +0=R1*/
+Restar R4,R4,R11; /*AUX:=AUX-254(CTE R11)*/
+SaltarSiC R5; /*sALTAMOS SI AUX>=0-> C=1*/
+
+/*FIN DE A RELLENAR CON CUIDAO*/
+
+Inmediato R15,2; /*adress:=2*/
+
+/*LECTURA(ADRESS=2, VAR DATA)*/
+Almacenar M(R11),R15;
+Inmediato R6,10;
+Almacenar M(R10),R6;
+Cargar R12, M(R10);
+Restar R12, R1, R12;
+SaltarSiC R0;
+Almacenar M(R10),R1;
+Cargar R12, M(R10);
+Sumar R12, R2, R12;
+SaltarSiC R0;
+Cargar R12, M(R10);
+Restar R12, R1, R12;
+SaltarSiC R0;
+Cargar R14,M(R11);
+Inmediato R9,4;
+Almacenar M(R10),R9;
+Cargar R12, M(R10);
+Sumar R12, R3, R12;
+SaltarSiC R0;
+Almacenar M(R10),R1;
+/*FIN LECTURA*/
+
+
+Inmediato R15,49; /*adress:=49*/
+
+/*ESCRIBIR(ADRESS=49, VAR DATA)
+Almacenar M(R11),R15;
+Inmediato R4,9;
+Almacenar M(R10),R4;
+Cargar R12, M(R10);
+Restar R12, R1, R12;
+SaltarSiC R0;
+Almacenar M(R10),R1;
+Cargar R12, M(R10);
+Sumar R12, R2, R12;
+SaltarSiC R0;
+Cargar R12, M(R10);
+Restar R12, R1, R12;
+SaltarSiC R0;
+Almacenar M(R11),R14;
+Inmediato R5,12;
+Almacenar M(R10),R5;
+Cargar R12, M(R10);
+Sumar R12, R3, R12;
+SaltarSiC R0;
+Almacenar M(R10),R1;
+/*FIN ESCRITURA*/
+
+Nop;
+

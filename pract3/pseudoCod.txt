@@ -1,0 +1,196 @@
+********* Pseudocódigo práctica 3 **************
+
+/*Primero, inicialización de los registros */
+R15 <- cte 254 (dir de port a)(ent_a)
+R14 <- cte 255 (dir de port b)(ent_b)
+R13<- Auxiliar para cte 0 y 1 que utilizamos para flanco de entrada y de salida en B
+R12<- valor de puerto A (sal_a)
+R11<- valor de puerto B (sal_b)
+R0<- valor de x
+R1<- valor de y
+R2<- valor de z
+R3<- valor de w
+/* El resto, temporales...*/
+R4<- valor temporal de sumas y restas
+R5<- indice i
+R6<- variable auxiliar prov
+R7<- salto de - 3 ~253 mod 256
+R8<- salto de 3
+R9<- salto de -18 ~248
+
+/*INICIO DEL PROGRAMA*/
+
+
+/**********************************************************************************************************************************************/
+/*Primero inicializamos el valor de los registros*/
+Inmediato R15,254;  /*cte 254*/
+Inmediato R14,255; /*cte 255*/
+Inmediato R7, 253; /* valor del primer salto*/
+
+/*Metemos 0 en salB=B*/
+Inmediato R11,0;
+/*Metemos 0 en salA*/
+Inmediato R12,0;
+
+/*Para sincronizar e/s repetimos...*/
+Inmediato R11,0;
+Inmediato R12,0;
+
+/*********************************************************************************************************************************************/
+
+/*Simulacion de pulso 1 : _|   */
+
+/*Bucle inf while B=0 */
+Cargar R11,M(R14); /*Leemos el contenido de port B*/
+Inmediato R13,0;
+Restar R4,R13,R11;  /*La operacion que hace resta es: R4<=R13+(256-R11) en R13 siempre hay 			0-> R4<=256-R11
+			Si R11 nos llega un 0: R4<=256 ~ 0 ...y entonces  salta atras...que 				quiere decir q seguimos en el bucle
+		Si R11 bos llega un 255; Ru<=256-255=1 y entonces sigue... que quiere decir que salimos del bucle*/
+SaltarSiC R7;	/* Si es 0....seguimos, saltamos 3 para atras, donde lee...*/
+
+/*Bucle inf while B=255 */
+Cargar R11,M(R14);/*Leemos contenido de port B*/
+Inmediato R13,1;
+Sumar R4,R13,R11; /*La operacion que hace suma es: R4<=R13 +R11 modulo 256
+		Si R11 nos llega un 255: R4<=255+1=256 y entonces salta atras, que quiere decir que seguimos en el bucle
+		Si R11 nos llega un 0: R4<=0+1=1 y entonces sigue...que quiere decir que salimos del bucle */
+SaltarSiC R7;
+ /*Ahora leemos el dato de yA  lo metemos en x*/
+Cargar R0,M(R15);
+
+/*Para sincronizar e/s */
+Inmediato R11,0;
+Inmediato R12,0;
+
+/*Simulacion de pulso 2 : _|   */
+
+/*Bucle inf while B=0 */
+Cargar R11,M(R14); /*Leemos el contenido de port B*/
+Inmediato R13,0;
+Restar R4,R13,R11;  /*La operacion que hace resta es: R4<=R13+(256-R11) en R13 siempre hay 0-> R4<=256-R11
+		Si R11 nos llega un 0: R4<=256 ~ 0 ...y entonces  salta atras...que quiere decir q seguimos en el bucle
+		Si R11 bos llega un 255; Ru<=256-255=1 y entonces sigue... que quiere decir que salimos del bucle*/
+SaltarSiC R7;	/* Si es 0....seguimos, saltamos 3 para atras, donde lee...*/
+
+/*Bucle inf while B=255 */
+Cargar R11,M(R14);/*Leemos contenido de port B*/
+Inmediato R13,1;
+Sumar R4,R13,R11; /*La operacion que hace suma es: R4<=R13 +R11 modulo 256
+		Si R11 nos llega un 255: R4<=255+1=256 y entonces salta atras, que quiere decir que seguimos en el bucle
+		Si R11 nos llega un 0: R4<=0+1=1 y entonces sigue...que quiere decir que salimos del bucle */
+SaltarSiC R7;
+ /*Ahora leemos el dato de A y lo metemos en y*/
+Cargar R1,M(R15);
+
+
+/*Para sincronizar e/s */
+Inmediato R11,0;
+Inmediato R11,0;
+
+/*Simulacion de pulso 3 : _|   */
+
+/*Bucle inf while B=0 */
+Cargar R11,M(R14); /*Leemos el contenido de port B*/
+Inmediato R13,0;
+Restar R4,R13,R11;  /*La operacion que hace resta es: R4<=R13+(256-R11) en R13 siempre hay 0-> R4<=256-R11
+		Si R11 nos llega un 0: R4<=256 ~ 0 ...y entonces  salta atras...que quiere decir q seguimos en el bucle
+		Si R11 bos llega un 255; Ru<=256-255=1 y entonces sigue... que quiere decir que salimos del bucle*/
+SaltarSiC R7;	/* Si es 0....seguimos, saltamos 3 para atras, donde lee...*/
+
+/*Bucle inf while B=255 */
+Cargar R11,M(R14);/*Leemos contenido de port B*/
+Inmediato R13,1;
+Sumar R4,R13,R11; /*La operacion que hace suma es: R4<=R13 +R11 modulo 256
+		Si R11 nos llega un 255: R4<=255+1=256 y entonces salta atras, que quiere decir que seguimos en el bucle
+		Si R11 nos llega un 0: R4<=0+1=1 y entonces sigue...que quiere decir que salimos del bucle */
+SaltarSiC R7;
+ /*Ahora leemos el dato de yA  lo metemos en z*/
+Cargar R2,M(R15);
+
+
+/*Simulacion de pulso 4 : _|   */
+
+/*Bucle inf while B=0 */
+Cargar R11,M(R14); /*Leemos el contenido de port B*/
+Inmediato R13,0;
+Restar R4,R13,R11;  /*La operacion que hace resta es: R4<=R13+(256-R11) en R13 siempre hay 0-> R4<=256-R11
+		Si R11 nos llega un 0: R4<=256 ~ 0 ...y entonces  salta atras...que quiere decir q seguimos en el bucle
+		Si R11 bos llega un 255; Ru<=256-255=1 y entonces sigue... que quiere decir que salimos del bucle*/
+SaltarSiC R7;	/* Si es 0....seguimos, saltamos 3 para atras, donde lee...*/
+
+/*Bucle inf while B=255 */
+Cargar R11,M(R14);/*Leemos contenido de port B*/
+Inmediato R13,1;
+Sumar R4,R13,R11; /*La operacion que hace suma es: R4<=R13 +R11 modulo 256
+		Si R11 nos llega un 255: R4<=255+1=256 y entonces salta atras, que quiere decir que seguimos en el bucle
+		Si R11 nos llega un 0: R4<=0+1=1 y entonces sigue...que quiere decir que salimos del bucle */
+SaltarSiC R7;
+ /*Ahora leemos el dato de yA  lo metemos en x*/
+Cargar R3,M(R15);
+
+/*****************************************************************************************************************************************************/
+/* ALGORITMO DE ORDENACION */
+
+/*Inicializacion del indice i-> R5 */
+Inmediato R5,1;
+Inmediato R8,4; /*Para salto del if*/
+Inmediato R13,0;
+
+/*Bucle mientras i>=0 */
+
+/*Aqui tenemos que volver*/
+/*Primer if .. x e y*/
+Restar R4,R0,R1; /*Si la resta es mayor que 0 saltamos, y quiere decir q x es mayor que y*/
+/*Saltamos en este caso, y reasignamos valores solo si y>x*/
+SaltarSiC R8;  
+Sumar R6,R13,R1;/*Metemos prov<=y */
+Sumar R1,R13,R0;/*y<=x*/
+Sumar R0,R13,R6;/*x<=prov*/
+
+/*Segundo if .. z y w*/
+Restar R4,R2,R3; /*Si la resta es mayor que 0 saltamos, y quiere decir q z es mayor que w*/
+/*Saltamos en este caso, y reasignamos valores solo si w>z*/
+SaltarSiC R8;
+Sumar R6,R13,R3;/*Metemos prov<=w */
+Sumar R3,R13,R2;/*w<=z*/
+Sumar R2,R13,R6;/*z<=prov*/
+
+/*Tercer if .. y:R1 y z:R2*/
+Restar R4,R1,R2; /*Si la resta es mayor que 0 saltamos, y quiere decir q y es mayor que z*/
+/*Saltamos en este caso, y reasignamos valores solo si z>y*/
+SaltarSiC R8;
+Sumar R6,R13,R2;/*Metemos prov<=z */
+Sumar R2,R13,R1;/*z<=y*/
+Sumar R1,R13,R6;/*y<=prov*/
+
+
+/*Actualizamos el contador */
+Inmediato R13,1 /*pa la resta*/
+Inmediato R9, 248 /*valor de salto del while*/
+Restar R5,R5,R13; /*i:=i-1*/
+SaltarSiC R9;
+
+/***********************************************************************************************************************************************************/
+/* Y A PARTIR DE AQUI .... LA SALIDA!!!!!*/
+Inmediato R13,0; /*pa cte 0*/
+
+Almacenar M(R15),R0; /*salA=x*/
+Almacenar M(R14),R15; /*salB=255*/
+Almacenar M(R14),R13;/*salB=0*/
+
+Almacenar M(R15),R1; /*salA=y*/
+Almacenar M(R14),R15; /*salB=255*/
+Almacenar M(R14),R13;/*salB=0*/
+
+Almacenar M(R15),R2; /*salA=z*/
+Almacenar M(R14),R15; /*salB=255*/
+Almacenar M(R14),R13;/*salB=0*/
+
+Almacenar M(R15),R3; /*salA=w*/
+Almacenar M(R14),R15; /*salB=255*/
+Almacenar M(R14),R13;/*salB=0*/
+Nop;
+
+
+
+

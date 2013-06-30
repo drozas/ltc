@@ -1,0 +1,141 @@
+*******************************************
+PseudoCódigo de pract4: prueba de E/S
+*******************************************
+/*Asignacion de registros*/
+R15: address (primer parámetro de los procedimientos de escritura y lectura),
+R14: data (segundo parámetro de los procedimientos de escritura y lectura),
+R13: palabra que se escribe en sal_B, es decir, 0 0 0 0 BusEn AckEn ReadReq WriteReq,
+R12: palabra que se lee de ent_B, es decir, 0 0 0 0 0 0 Rdy Ack,
+R11: constante 254 (dirección del puerto A),:ent_a, sal_a
+R10: constante 255 (dirección del puerto B), :ent_b, sal_b
+R9: de uso libre dentro de los procedimientos de escritura y lectura.
+R8: constante 0,
+R7: salto de -2~254
+R0 a R7: de uso general
+
+/* PseudoCodigo original TOTAL*/
+procedure prueba_es is
+begin
+sal_B := "00000000";
+address := 47;
+leer (address, data);
+address := 48;
+escribir (address, data);
+sal_B := "00000000";
+end prueba_es;
+**************************************************************************************
+/*PseudoCodigo Leer*/
+procedure leer (address: in byte; , data: out byte) is
+sal_A := address;
+sal_B := "00001010"; (ya corregido)
+while ent_B = "00000000" loop null; end loop;
+sal_B := "00000000";
+while ent_B = "00000001" loop null; end loop;
+while ent_B = "00000000" loop null; end loop;
+data := ent_A;
+sal_B := "00000100";
+while ent_B = "00000011" loop null; end loop;
+sal_B := "00000000";
+end leer;
+**************************************************************************************
+/*PseudoCodigo escribir*/
+procedure escribir (address, data: in byte) is
+sal_A := address;
+sal_B := "00001001";
+while ent_B = "00000000" loop null; end loop;
+sal_B := "00000000";
+while ent_B = "00000001" loop null; end loop;
+while ent_B = "00000000" loop null; end loop;
+sal_A := data;
+sal_B := "00001100";
+while ent_B = "00000011" loop null; end loop;
+sal_B := "00000000";
+end escribir;
+
+**************************************************************************************
+**************************************************************************************
+
+/*Asignacion de regs ctes y saltos...*/
+Inmediato R8,0;
+Inmediato R11,254;
+Inmediato R10,255;
+Inmediato R7,254;
+
+
+Inmediato R13,0; /*Rsal_b=00000000*/
+Almacenar M(R10),R13; /*sal_b=0000000*/
+Inmediato R15,47; /*adress=47*/
+
+/*PROCEDURE LEER*/
+Almacenar M(R11),R15; /*sal_a=adress*/
+Inmediato R0,10;
+Almacenar M(R10),R0; /*sal_b=00001010*/
+/*Bucle...while ent_B = "00000000" loop null; end loop;*/
+Cargar R12,M(R10); /*R12<=ent_b*/
+Restar R12,R8,R12; 
+SaltarSiC R7;
+/*fin bucle*/
+Inmediato R13,0;
+Almacenar M(R10),R13; /*sal_B=0000000*/
+/*Bucle...while ent_B = "00000001" loop null; end loop;*/
+Cargar R12,M(R10);/*R12<=ent_B*/ ******
+Sumar R12,R10,R12;
+SaltarSiC R7;
+/*fin bucle*/
+/*Bucle...while ent_B = "00000000" loop null; end loop;*/
+Cargar R12,M(R10); /*R12<=ent_b*/
+Restar R12,R8,R12; 
+SaltarSiC R7;
+/*fin bucle*/
+Cargar R14,M(R11); /*data<= ent_a*/
+Inmediato R0,4;
+Almacenar M(R10),R0; /*sal_b=00000100*/
+Inmediato R0,253;
+/*Bucle...while ent_B = "00000011" loop null; end loop;*/
+Cargar R12,M(R10);
+Sumar R12,R0,R12;
+SaltarSiC R7;
+/*fin bucle...*/
+Almacenar M(R10),R8; /*sal_b=00000000*/
+/*FIN PROCEDURE LEER*/
+
+
+Inmediato R15,48; /*adress=48*/ç
+/*PROCEDURE ESCRIBIR*/
+Almacenar M(R11),R15; /*sal_a<=adress*/
+Inmediato R0,9; /*sal_b<=00001001*/
+/*Bucle...while ent_B = "00000000" loop null; end loop;*/
+Cargar R12,M(R10); /*R12<=ent_b*/
+Restar R12,R8,R12; 
+SaltarSiC R7;
+/*fin bucle*/
+Almacenar M(R11),R13;/*sal_b=000000000*/
+/*Bucle...while ent_B = "00000001" loop null; end loop;*/
+Cargar R12,M(R10);/*R12<=ent_B*/
+Sumar R12,R10,R12;
+SaltarSiC R7;
+/*fin bucle*/
+/*Bucle...while ent_B = "00000000" loop null; end loop;*/
+Cargar R12,M(R10); /*R12<=ent_b*/
+Restar R12,R8,R12; 
+SaltarSiC R7;
+/*fin bucle*/
+Almacenar M(R11),R14; /*sal_a<=data*/
+Inmediato R0,10;
+Almacenar M(R10),R0;/*sal_b<=00001100*/
+Inmediato R0,253;
+/*Bucle...while ent_B = "00000011" loop null; end loop;*/
+Cargar R12,M(R10);
+Sumar R12,R0,R12;
+SaltarSiC R7;
+/*fin bucle...*/
+Almacenar M(R10),R8; /*sal_b=00000000*/
+
+
+
+
+
+Inmediato R13,0; /*sal_B=0*/
+
+Nop;
+

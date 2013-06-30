@@ -1,0 +1,116 @@
+Inmediato R15,254;
+Inmediato R14,255;
+Inmediato R7, 253; 
+Inmediato R11,0;
+Inmediato R12,0;
+Inmediato R11,0;
+Inmediato R12,0;
+
+***carga1*********
+Cargar R11,M(R14);
+Inmediato R13,0;
+Restar R4,R13,R11;  
+SaltarSiC R7;
+Cargar R11,M(R14);
+Inmediato R13,1;
+Sumar R4,R13,R11;
+SaltarSiC R7;
+Cargar R0,M(R15);
+
+Inmediato R11,0;
+Inmediato R12,0;
+
+***carga2********
+Cargar R11,M(R14);
+Inmediato R13,0;
+Restar R4,R13,R11;
+SaltarSiC R7;
+Cargar R11,M(R14);
+Inmediato R13,1;
+Sumar R4,R13,R11;
+SaltarSiC R7;
+Cargar R1,M(R15);
+
+Inmediato R11,0;
+Inmediato R11,0;
+
+***carga3********
+Cargar R11,M(R14);
+Inmediato R13,0;
+Restar R4,R13,R11; 
+SaltarSiC R7;
+Cargar R11,M(R14);
+Inmediato R13,1;
+Sumar R4,R13,R11;
+SaltarSiC R7;
+Cargar R2,M(R15);
+
+***carga4********
+Cargar R11,M(R14);
+Inmediato R13,0;
+Restar R4,R13,R11;
+SaltarSiC R7;
+Cargar R11,M(R14);
+Inmediato R13,1;
+Sumar R4,R13,R11;
+SaltarSiC R7;
+Cargar R3,M(R15);
+
+****************
+***sort*********
+Inmediato R5,1;
+Inmediato R8,4;
+Inmediato R13,0;
+
+*pto_bucle*
+***if1**********
+Restar R4,R0,R1; 
+SaltarSiC R8;  
+Sumar R6,R13,R1;
+Sumar R1,R13,R0;
+Sumar R0,R13,R6;
+
+***if2*********
+Restar R4,R2,R3;
+SaltarSiC R8;
+Sumar R6,R13,R3;
+Sumar R3,R13,R2;
+Sumar R2,R13,R6;
+
+***if3**********
+Restar R4,R1,R2;
+SaltarSiC R8;
+Sumar R6,R13,R2;
+Sumar R2,R13,R1;
+Sumar R1,R13,R6;
+
+Inmediato R13,1;
+Inmediato R9, 236;
+Restar R5,R5,R13;
+SaltarSiC R9;*salto_bucle*
+
+****************
+*****salida*****
+Inmediato R13,0;
+
+****1er num*********
+Almacenar M(R15),R0;
+Almacenar M(R14),R15; 
+Almacenar M(R14),R13;
+***2º num***********
+Almacenar M(R15),R1;
+Almacenar M(R14),R15;
+Almacenar M(R14),R13;
+***3er num**********
+Almacenar M(R15),R2;
+Almacenar M(R14),R15;
+Almacenar M(R14),R13;
+***4º num***********
+Almacenar M(R15),R3;
+Almacenar M(R14),R15;
+Almacenar M(R14),R13;
+Nop;
+
+
+
+

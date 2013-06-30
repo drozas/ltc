@@ -1,0 +1,57 @@
+[Product]
+Name=vbhdl
+Version=8
+Type=0
+Imported=0
+
+[ImportedLibMaps]
+Count=0
+
+[GUI Windows]
+ProjectBrowser=(0,247,0,207,0,0,-1,-1)
+EditorCount=0
+
+[Source Files]
+FileCount=5
+File1=.\constantes.vhd 0,0,,0
+File2=.\regN_clear.vhd 0,0,,0
+File3=.\sumadorN.vhd 0,0,,0
+File4=.\acumuladorN.vhd 0,0,,0
+File5=.\test.vhd 0,0,,0
+
+[Design Root]
+Design Root Kind=0
+Entity=TEST_ACUMULADORN
+Architecture=TEST
+
+[Compile Settings]
+Project=32,
+
+[Simulate Settings]
+TimeUnit=-1
+TerminateLevel=3
+SupMsg=0
+SupInitPhaseMsg=0
+TraceOn=0
+DebugInitPhase=0
+StdInMode=0
+StdOutMode=0
+
+[Synopsys Models]
+HdwareModelTimeCheck=1
+HdwareModelDelayMode=1
+HdwareModelVectorLogging=0
+SmartModelTimeCheck=1
+SmartModelDelayMode=1
+
+[Library Component]
+BrowserCount=0
+
+[Simulator Component]
+TimeUnit=2
+
+[Debug Component]
+File=PRACT1.dbg
+
+[WAVEFORM COMPONENT]
+WVE_FileName=PRACT1.wve

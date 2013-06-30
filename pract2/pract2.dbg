@@ -1,0 +1,12 @@
+[Product]
+Name=vbhdl
+Version=8
+Type=0
+[Src Brkpt Component]
+FileCount=0
+[Sgl Brkpt Component]
+SglCount=0
+[Expr Brkpt Component]
+ExprCount=0
+[Watch Component]
+WndCount=0

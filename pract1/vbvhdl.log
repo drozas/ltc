@@ -1,0 +1,77 @@
+vbvhdl4ive -d TEST_ACUMULADORN TEST -i -dbg
+VeriBest VHDL Simulator Version 15.00.00.25.
+Starting Simulation ... Tue Mar 02 03:25:33 2004
+
+License error: Error reading license file
+Cannot find license file
+ The license files (or server network addresses) attempted are 
+ listed below.  Use LM_LICENSE_FILE to use a different license file,
+ or contact your software provider for a license file.
+Feature:       VBVHDL_CHIP_NT
+Filename:      C:\flexlm\license.dat
+License path:  C:\flexlm\license.dat
+FLEXlm error:  -1,359.  System Error: 2 "No such file or directory"
+For further information, refer to the FLEXlm End User Manual,
+available at "www.globetrotter.com".
+License file is C:\flexlm\license.dat
+Feature is VBVHDL_CHIP_NT.
+
+-----------------------------------------------------------
+No license was found.
+The simulator will run in reduced capacity mode.
+
+If you would like a license for full capacity operation,
+please contact us at sales@veribest.com
+or in the USA call us at 1-888 482-3322.
+
+http://www.veribest.com/vhdl.html
+-----------------------------------------------------------
+NOTE: Number of component (cell) instances in the design: 3
+
+Assertion [WARNING] in :TEST_ACUMULADORN(TEST):ETIQUETA@ACUMULADORN(CIRCUITO):SUMADOR@SUMADOR_N(FUNCIONAL):_P at time 0 ns, cycle 0:
+    There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+Assertion [WARNING] in :TEST_ACUMULADORN(TEST):ETIQUETA@ACUMULADORN(CIRCUITO):SUMADOR@SUMADOR_N(FUNCIONAL):_P at time 0 ns, cycle 0:
+    There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+Assertion [WARNING] in :TEST_ACUMULADORN(TEST):ETIQUETA@ACUMULADORN(CIRCUITO):SUMADOR@SUMADOR_N(FUNCIONAL):_P at time 0 ns, cycle 0:
+    There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+Assertion [WARNING] in :TEST_ACUMULADORN(TEST):ETIQUETA@ACUMULADORN(CIRCUITO):SUMADOR@SUMADOR_N(FUNCIONAL):_P at time 0 ns, cycle 0:
+    There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+
+Checkpointing at simulation time 0 ns.
+Checkpoint completed.
+Ready to simulate ... Tue Mar 02 03:25:37 2004
+
+-- Message Summary:
+Total: 0 error(s), 0 warning(s), 0 note(s)
+
+run 100 ns
+
+Run for 100 ns.
+Assertion [WARNING] in :TEST_ACUMULADORN(TEST):ETIQUETA@ACUMULADORN(CIRCUITO):SUMADOR@SUMADOR_N(FUNCIONAL):_P at time 0 ns, cycle 1:
+    There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+Assertion [WARNING] in :TEST_ACUMULADORN(TEST):ETIQUETA@ACUMULADORN(CIRCUITO):SUMADOR@SUMADOR_N(FUNCIONAL):_P at time 0 ns, cycle 1:
+    There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+Assertion [WARNING] in :TEST_ACUMULADORN(TEST):ETIQUETA@ACUMULADORN(CIRCUITO):SUMADOR@SUMADOR_N(FUNCIONAL):_P at time 0 ns, cycle 1:
+    There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+Assertion [WARNING] in :TEST_ACUMULADORN(TEST):ETIQUETA@ACUMULADORN(CIRCUITO):SUMADOR@SUMADOR_N(FUNCIONAL):_P at time 0 ns, cycle 2:
+    There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+Assertion [WARNING] in :TEST_ACUMULADORN(TEST):ETIQUETA@ACUMULADORN(CIRCUITO):SUMADOR@SUMADOR_N(FUNCIONAL):_P at time 0 ns, cycle 2:
+    There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+run 100 ns
+
+Run for 100 ns.
+run 100 ns
+
+Run for 100 ns.
+run 100 ns
+
+Run for 100 ns.
+run 100 ns
+
+Run for 100 ns.
+run 100 ns
+
+Run for 100 ns.
+run 100 ns
+
+Run for 100 ns.
